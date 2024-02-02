@@ -12,6 +12,7 @@ const handler = NextAuth({
   ],
   callbacks: {
     async session({ session }) {
+      await connectToDb();
       const sessionUser = await User.findOne({
         email: session.user.email,
       });
@@ -19,10 +20,8 @@ const handler = NextAuth({
       return session;
     },
     async signIn({ profile }) {
+      await connectToDb();
       try {
-        // check db connection
-        await connectToDb();
-
         // check if a user already exists
         const userExists = await User.findOne({
           email: profile.email,

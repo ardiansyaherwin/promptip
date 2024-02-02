@@ -5,12 +5,12 @@ import NextTopLoader from "nextjs-toploader";
 
 export const metadata = {
   title: "Promptip",
-  description: "Discover and Share AI Prompts",
+  description: "Save Yours and Discover others AI Prompts Online for Free",
 };
 
 const RootLayout = ({ children }) => {
   return (
-    <html lang="end">
+    <html lang="en">
       <body>
         <NextTopLoader color="#ec4899" showSpinner={false} />
         <Provider>
