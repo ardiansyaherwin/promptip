@@ -32,9 +32,9 @@ const PromptCard = ({
             className="object-contain rounded-full"
           />
           <div className="flex flex-col text-left">
-            <h3 className="font-semibold text-gray-900 font-satoshi">
+            <p className="font-semibold text-gray-900 font-satoshi">
               {post.creator.username}
-            </h3>
+            </p>
             <p className="text-sm text-gray-500 text-inter font-inter">
               {post.creator.email}
             </p>

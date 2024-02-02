@@ -1,5 +1,6 @@
-"use client";
 import Feed from "@/components/Feed";
+import LoadingFeed from "@/components/LoadingFeed";
+import { Suspense } from "react";
 
 const HomePage = () => {
   return (
@@ -13,8 +14,9 @@ const HomePage = () => {
         Promtip is an open-source AI prompting tool for modern world to
         discover, create and share creative prompts
       </p>
-
-      <Feed />
+      <Suspense fallback={<LoadingFeed />}>
+        <Feed />
+      </Suspense>
     </section>
   );
 };
