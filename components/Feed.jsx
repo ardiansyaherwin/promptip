@@ -9,7 +9,7 @@ const Feed = () => {
   const [searchedResults, setSearchedResults] = useState([]);
 
   const fetchPosts = async () => {
-    const response = await fetch("/api/prompt");
+    const response = await fetch("/api/prompt", { cache: "no-store" });
     const data = await response.json();
     setPosts(data);
   };
@@ -50,7 +50,7 @@ const Feed = () => {
 
   return (
     <section className="feed">
-      <form className="relative w-full flex-center" onSubmit="">
+      <form className="relative w-full flex-center">
         <input
           type="text"
           placeholder="Search for a tag or a username"
