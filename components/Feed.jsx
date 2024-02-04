@@ -9,7 +9,10 @@ const Feed = () => {
   const [searchedResults, setSearchedResults] = useState([]);
 
   const fetchPosts = async () => {
-    const response = await fetch("/api/prompt", { cache: "no-cache" });
+    const timestamp = new Date().getTime();
+    const response = await fetch(`/api/prompt?timestamp=${timestamp}`, {
+      cache: "no-store",
+    });
     const data = await response.json();
     setPosts(data);
   };
