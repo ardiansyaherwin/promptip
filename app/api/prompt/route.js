@@ -1,12 +1,13 @@
 import Prompt from "@/models/prompt";
 import { connectToDb } from "@/utils/database";
+import { revalidatePath } from "next/cache";
 
 export const GET = async () => {
   try {
     await connectToDb();
 
     const prompts = await Prompt.find({}).populate("creator");
-
+    revalidatePath("/");
     return new Response(JSON.stringify(prompts), { status: 200 });
   } catch (error) {
     console.log(error);
